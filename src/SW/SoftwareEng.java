@@ -54,8 +54,21 @@ public class SoftwareEng extends JFrame {
 	private JTextField textField_Question;
 	private JTextField textField_AnsFIB;
 	private JTextField textField_FinishFIB;
-	List<JTextField> fields= new ArrayList<JTextField>();
-	
+	List<JTextField> fields = new ArrayList<JTextField>();
+	private JTextField textField_FBA;
+	private JTextField textField_FBB;
+	private JTextField textField_FBC;
+	private JTextField textField_FBD;
+	private JTextField textField_MC_Q;
+	private JTextField textField_MC_T;
+	private JTextField textField_MC_CFA;
+	private JTextField textField_MC_CFB;
+	private JTextField textField_MC_CFC;
+	private JTextField textField_MC_CFD;
+	private JTextField textField_FEEDBACKA;
+	private JTextField textField_FEEDBACKB;
+	private JTextField textField_FEEDBACKC;
+	private JTextField textField_FEEDBACKD;
 
 	/**
 	 * Launch the application.
@@ -64,26 +77,28 @@ public class SoftwareEng extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-//					
-				    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-				        if ("Nimbus".equals(info.getName())) {
-				            UIManager.setLookAndFeel(info.getClassName());
-				            break;
-				        }
-				    }
-				} catch (Exception e) {
-				    // If Nimbus is not available, you can set the GUI to another look and feel.
-				}
-					try {
-						SoftwareEng frame = new SoftwareEng();
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					//
+					for (LookAndFeelInfo info : UIManager
+							.getInstalledLookAndFeels()) {
+						if ("Nimbus".equals(info.getName())) {
+							UIManager.setLookAndFeel(info.getClassName());
+							break;
+						}
 					}
+				} catch (Exception e) {
+					// If Nimbus is not available, you can set the GUI to
+					// another look and feel.
+				}
+				try {
+					SoftwareEng frame = new SoftwareEng();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
+				// } catch (Exception e) {
+				// e.printStackTrace();
+				// }
 			}
 		});
 	}
@@ -96,11 +111,11 @@ public class SoftwareEng extends JFrame {
 	public SoftwareEng() throws FileNotFoundException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JFrame frame = new JFrame();
-		frame.getContentPane().setLayout(new MigLayout("", "[grow]", "[grow]"));
+		frame.getContentPane().setLayout(new MigLayout("", "[grow]", ""));
 
 		final JPanel panel = new JPanel();
 		final JPanel panel3 = new JPanel();
-		
+
 		JTabbedPane tpane = new JTabbedPane();
 		tpane.addTab("True or False", null, panel, "This is enable.");
 		panel.setLayout(new MigLayout("", "[grow][grow]", "[][][][][][]"));
@@ -129,6 +144,137 @@ public class SoftwareEng extends JFrame {
 		group.add(rdbtnNewRadioButton_1);
 		group.add(rdbtnNewRadioButton);
 		textArea.setRows(5);
+		final JPanel panel2 = new JPanel();
+
+		tpane.addTab("Multiple Choice", null, panel2, "This is enable.");
+		panel2.setLayout(new MigLayout("", "[grow][grow][][grow]",
+				"[][][][][][][][][][][][][][]"));
+
+		JLabel lblMc = new JLabel("Title");
+		panel2.add(lblMc, "cell 0 0");
+
+		txtTitleMC = new JTextField();
+		panel2.add(txtTitleMC, "cell 1 1 3 1,growx");
+		txtTitleMC.setColumns(10);
+
+		JLabel lblNewLabel_Mc = new JLabel("Question");
+		panel2.add(lblNewLabel_Mc, "cell 0 2");
+
+		final JTextArea txtQuestionMC = new JTextArea();
+		txtQuestionMC.setRows(5);
+
+		panel2.add(txtQuestionMC, "cell 1 3 3 1,grow");
+
+		JLabel lblAnswerA = new JLabel("Answer A");
+		panel2.add(lblAnswerA, "cell 0 5,alignx trailing");
+
+		txtCorrectAnsMC = new JTextField();
+		panel2.add(txtCorrectAnsMC, "cell 1 5,growx");
+		txtCorrectAnsMC.setColumns(10);
+
+		JLabel lblFeedback = new JLabel("Feedback:");
+		panel2.add(lblFeedback, "cell 2 5,alignx trailing");
+
+		textField_FBA = new JTextField();
+		panel2.add(textField_FBA, "cell 3 5,growx");
+		textField_FBA.setColumns(10);
+
+		JLabel lblAnswerB = new JLabel("Answer B");
+		panel2.add(lblAnswerB, "cell 0 6,alignx trailing");
+
+		txtAnswer2MC = new JTextField();
+		panel2.add(txtAnswer2MC, "cell 1 6,growx");
+		txtAnswer2MC.setColumns(10);
+
+		JLabel lblFeedback2 = new JLabel("Feddback");
+		panel2.add(lblFeedback2, "cell 2 6,alignx trailing,growy");
+
+		textField_FBB = new JTextField();
+		panel2.add(textField_FBB, "cell 3 6,growx");
+		textField_FBB.setColumns(10);
+
+		JLabel lblAnswerC = new JLabel("Answer C");
+		panel2.add(lblAnswerC, "cell 0 7,alignx trailing");
+
+		txtAnswer3MC = new JTextField();
+		panel2.add(txtAnswer3MC, "cell 1 7,growx");
+		txtAnswer3MC.setColumns(10);
+
+		JLabel lblFeedback3 = new JLabel("Feedback");
+		panel2.add(lblFeedback3, "cell 2 7,alignx trailing");
+
+		textField_FBC = new JTextField();
+		panel2.add(textField_FBC, "cell 3 7,growx");
+		textField_FBC.setColumns(10);
+
+		JLabel lblAnswerD = new JLabel("Answer D");
+		panel2.add(lblAnswerD, "cell 0 8,alignx trailing");
+
+		txtAnswer4MC = new JTextField();
+		panel2.add(txtAnswer4MC, "cell 1 8,growx");
+		txtAnswer4MC.setColumns(10);
+
+		JButton btnSaveFileMC = new JButton("Save to file");
+		btnSaveFileMC.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+
+				try {
+					// String shit = "";
+					// if (rdbtnNewRadioButton.isEnabled()) {
+					// shit = "T";
+					// } else if (rdbtnNewRadioButton_1.isEnabled()) {
+					// shit = "F";
+					// } else
+					// shit = "F";
+
+					String fileName = "C:\\Users\\Declan\\Desktop\\SW";
+					PrintWriter outFile = new PrintWriter(fileName + ".txt");
+					outFile.write("::" + txtTitleMC.getText() + "::");
+					outFile.write(txtQuestionMC.getText());
+					outFile.write("\n" + "{" + " " + "="
+							+ txtCorrectAnsMC.getText() + " " + "#" + " "
+							+ textField_FBA.getText() + " " + "~"
+							+ txtAnswer2MC.getText() + " " + "#" + " "
+							+ textField_FBB.getText() + " " + "~"
+							+ txtAnswer3MC.getText() + " " + "#" + " "
+							+ textField_FBC.getText() + " " + "~"
+							+ txtAnswer4MC.getText() + " " + "#" + " "
+							+ textField_FBD.getText() + " " + "}");
+					// outFile.append( ""+Ans1MC.getValue() );
+
+					// textArea.write(outFile);
+					outFile.close();
+
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+
+				}
+			}
+		});
+
+		JLabel lblFeddback4 = new JLabel("Feedback");
+		panel2.add(lblFeddback4, "cell 2 8,alignx trailing");
+
+		textField_FBD = new JTextField();
+		panel2.add(textField_FBD, "cell 3 8,growx");
+		textField_FBD.setColumns(10);
+		panel2.add(btnSaveFileMC, "cell 0 13");
+
+		JButton btnDeleteMC = new JButton("Delete");
+		btnDeleteMC.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				txtAnswer2MC.setText("");
+				txtAnswer3MC.setText("");
+				txtAnswer4MC.setText("");
+				txtCorrectAnsMC.setText("");
+				txtQuestionMC.setText("");
+				txtTitleMC.setText("");
+			}
+		});
+		panel2.add(btnDeleteMC, "cell 3 13");
 		final JPanel panel4 = new JPanel();
 		tpane.addTab("Matching", null, panel4, "This is enable.");
 		panel4.setLayout(new MigLayout("", "[][][][][grow][][][][][grow][]",
@@ -161,7 +307,7 @@ public class SoftwareEng extends JFrame {
 		textField_MatchingA1 = new JTextField();
 		panel4.add(textField_MatchingA1, "cell 9 3,growx");
 		textField_MatchingA1.setColumns(10);
-		
+
 		JCheckBox chckbxDeleteA = new JCheckBox("Delete");
 		chckbxDeleteA.addMouseListener(new MouseAdapter() {
 			@Override
@@ -185,7 +331,7 @@ public class SoftwareEng extends JFrame {
 		textField_MatchingB1 = new JTextField();
 		panel4.add(textField_MatchingB1, "cell 9 5,growx");
 		textField_MatchingB1.setColumns(10);
-		
+
 		JCheckBox chckbxDeleteB = new JCheckBox("Delete");
 		chckbxDeleteB.addMouseListener(new MouseAdapter() {
 			@Override
@@ -241,7 +387,7 @@ public class SoftwareEng extends JFrame {
 
 			}
 		});
-		
+
 		JCheckBox chckbxDeleteC = new JCheckBox("Delete");
 		chckbxDeleteC.addMouseListener(new MouseAdapter() {
 			@Override
@@ -254,15 +400,16 @@ public class SoftwareEng extends JFrame {
 		panel4.add(btnMatchingSaveBtn, "cell 1 10");
 
 		tpane.addTab("Fill In the Blanks", null, panel3, "This is enable.");
-		panel3.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][]"));
-		
+		panel3.setLayout(new MigLayout("", "[grow][grow][grow]",
+				"[][][][][][][][][]"));
+
 		final JLabel lblTitleFIB = new JLabel("Title");
 		panel3.add(lblTitleFIB, "cell 0 0");
-		
+
 		textField_TitleFIB = new JTextField();
 		panel3.add(textField_TitleFIB, "cell 2 1,growx");
 		textField_TitleFIB.setColumns(10);
-		
+
 		JButton btnSavetoTextFIB = new JButton("Save to file");
 		btnSavetoTextFIB.addMouseListener(new MouseAdapter() {
 			@Override
@@ -290,209 +437,235 @@ public class SoftwareEng extends JFrame {
 
 			}
 		});
-		
+
 		JLabel lblQuestionFIB = new JLabel("Question");
 		lblQuestionFIB.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		panel3.add(lblQuestionFIB, "cell 1 3,alignx center");
-		
+
 		textField_Question = new JTextField();
 		panel3.add(textField_Question, "cell 0 5,growx");
 		textField_Question.setColumns(10);
-		
+
 		textField_AnsFIB = new JTextField();
 		panel3.add(textField_AnsFIB, "cell 1 5,growx");
 		textField_AnsFIB.setColumns(10);
-		
+
 		textField_FinishFIB = new JTextField();
 		panel3.add(textField_FinishFIB, "cell 2 5,growx");
 		textField_FinishFIB.setColumns(10);
-			
+
 		panel3.add(btnSavetoTextFIB, "cell 0 8");
-		
+
 		final JButton btnDeleteAllFIB = new JButton("Delete ");
 		btnDeleteAllFIB.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+
 				textField_TitleFIB.setText("");
 				textField_AnsFIB.setText("");
 				textField_FinishFIB.setText("");
 				textField_Question.setText("");
-				
+
 			}
 		});
 		panel3.add(btnDeleteAllFIB, "cell 2 8,alignx right");
 		frame.getContentPane().add(tpane, "grow");
-		final JPanel panel2 = new JPanel();
-
-		tpane.addTab("Multiple Choice", null, panel2, "This is enable.");
-		panel2.setLayout(new MigLayout("", "[grow][grow][]", "[][][][][][][][][][][][]"));
-
-		JLabel lblMc = new JLabel("Title");
-		panel2.add(lblMc, "cell 0 0");
-
-		txtTitleMC = new JTextField();
-		panel2.add(txtTitleMC, "cell 1 1,growx");
-		txtTitleMC.setColumns(10);
-
-		JLabel lblNewLabel_Mc = new JLabel("Question");
-		panel2.add(lblNewLabel_Mc, "cell 0 2");
-
-		final JTextArea txtQuestionMC = new JTextArea();
-		txtQuestionMC.setRows(5);
 		textArea.setRows(5);
+
+		JButton btnSaveTrueOrFalse = new JButton("Save to file");
+		btnSaveTrueOrFalse.addMouseListener(new MouseAdapter() {
+			// final JTextArea textArea = new JTextArea();
+			public void mouseClicked(MouseEvent arg0) {
+				// BufferedWriter outFile = null;
+
+				try {
+					String text = "";
+					if (rdbtnNewRadioButton.isEnabled()) {
+						text = "T";
+					} else if (rdbtnNewRadioButton_1.isEnabled()) {
+						text = "F";
+					} else
+						text = "F";
+
+					String fileName = "C:\\Users\\Declan\\Desktop\\SW";
+					PrintWriter outFile = new PrintWriter(fileName + ".txt");
+					outFile.write("::" + textField_1.getText() + "::");
+					outFile.write(textArea.getText());
+					outFile.write("{" + text + "}");
+
+					// textArea.write(outFile);
+					outFile.close();
+
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		panel.add(btnSaveTrueOrFalse, "cell 0 5");
+
+		JButton btnAddQuestion = new JButton("Delete All");
+		btnAddQuestion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				textArea.setText("");
+				textField_1.setText("");
+
+			}
+		});
+		panel.add(btnAddQuestion, "cell 1 5,alignx right");
+
+		final JPanel panel5 = new JPanel();
+
+		tpane.addTab("Multiple Choice 2", null, panel5, "This is enable.");
+		panel5.setLayout(new MigLayout("", "[grow][grow][][grow][][]", "[][][][][][][][][][][][]"));
+
+		JLabel lblTitleMC_CF = new JLabel("Title");
+		panel5.add(lblTitleMC_CF, "cell 0 0");
+
+		textField_MC_Q = new JTextField();
+		panel5.add(textField_MC_Q, "cell 1 1 3 1,growx");
+		textField_MC_Q.setColumns(10);
+
+		JLabel lblQuestion_MC_CF = new JLabel("Question");
+		panel5.add(lblQuestion_MC_CF, "cell 0 2");
+
+		textField_MC_T = new JTextField();
+		panel5.add(textField_MC_T, "cell 1 3 3 1,growx");
+		textField_MC_T.setColumns(10);
+
+		JLabel lblAnswerA_MC_CF = new JLabel("Answer A");
+		panel5.add(lblAnswerA_MC_CF, "cell 0 6,alignx trailing");
+
+		textField_MC_CFA = new JTextField();
+		panel5.add(textField_MC_CFA, "cell 1 6,growx");
+		textField_MC_CFA.setColumns(10);
+
+		JLabel lblNewLabel_FeedBack_A = new JLabel("Feedback");
+		panel5.add(lblNewLabel_FeedBack_A, "cell 2 6,alignx trailing");
+
+		textField_FEEDBACKA = new JTextField();
+		panel5.add(textField_FEEDBACKA, "cell 3 6,growx");
+		textField_FEEDBACKA.setColumns(10);
+
+		final JSpinner spinner_MC_A = new JSpinner();
+		panel5.add(spinner_MC_A, "cell 5 6");
+
+		JLabel lblAnswerB_MC_CF = new JLabel("Answer B");
+		panel5.add(lblAnswerB_MC_CF, "cell 0 7,alignx trailing");
+
+		textField_MC_CFB = new JTextField();
+		panel5.add(textField_MC_CFB, "cell 1 7,growx");
+		textField_MC_CFB.setColumns(10);
+
+		JLabel lblNewLabel_6 = new JLabel("Feedback");
+		panel5.add(lblNewLabel_6, "cell 2 7,alignx trailing");
+
+		textField_FEEDBACKB = new JTextField();
+		panel5.add(textField_FEEDBACKB, "cell 3 7,growx");
+		textField_FEEDBACKB.setColumns(10);
+
+		final JSpinner spinner_MC_B = new JSpinner();
+		panel5.add(spinner_MC_B, "cell 5 7");
+
+		JLabel lblAnswerC_MC_CF = new JLabel("Answer C");
+		panel5.add(lblAnswerC_MC_CF, "cell 0 8,alignx trailing");
+
+		textField_MC_CFC = new JTextField();
+		panel5.add(textField_MC_CFC, "cell 1 8,growx");
+		textField_MC_CFC.setColumns(10);
+
+		JLabel lblNewLabel_FeedBack_C = new JLabel("Feedback");
+		panel5.add(lblNewLabel_FeedBack_C, "cell 2 8,alignx trailing");
+
+		textField_FEEDBACKC = new JTextField();
+		panel5.add(textField_FEEDBACKC, "cell 3 8,growx");
+		textField_FEEDBACKC.setColumns(10);
+
+		final JSpinner spinner_MC_C = new JSpinner();
+		panel5.add(spinner_MC_C, "cell 5 8");
+
+		JLabel lblAnswerD_MC_CF = new JLabel("Answer D");
+		panel5.add(lblAnswerD_MC_CF, "cell 0 9,alignx trailing");
+
+		textField_MC_CFD = new JTextField();
+		panel5.add(textField_MC_CFD, "cell 1 9,growx");
+		textField_MC_CFD.setColumns(10);
+
+		JLabel lblNewLabel_FeedBack_D = new JLabel("Feedback");
+		panel5.add(lblNewLabel_FeedBack_D, "cell 2 9,alignx trailing");
+
+		textField_FEEDBACKD = new JTextField();
+		panel5.add(textField_FEEDBACKD, "cell 3 9,growx");
+		textField_FEEDBACKD.setColumns(10);
+
+		final JSpinner spinner_MC_D = new JSpinner();
+		panel5.add(spinner_MC_D, "cell 5 9");
+
+		JButton btnMC_FC = new JButton("Save to file");
+		btnMC_FC.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+
+					String fileName = "C:\\Users\\Declan\\Desktop\\SW";
+					PrintWriter outFile = new PrintWriter(fileName + ".txt");
+					outFile.write("::" + textField_MC_Q.getText() + "::" + " ");
+					outFile.write(textField_MC_T.getText());
+					outFile.write("\n" + "{#" + " \r" + "\n " + "="
+							+ textField_MC_CFA.getText() + ":" + "%"
+							+ spinner_MC_A.getValue() + "%" + "\t" + "#" + " "
+							+ textField_FEEDBACKA.getText() + "\r" + "\n"
+							+ " =" + "%" + spinner_MC_B.getValue() + "%"
+							+ textField_MC_CFB.getText() + "\t" + "#" + " "
+							+ textField_FEEDBACKB.getText() + "\r" + "\n"
+							+ " =" + "%" + spinner_MC_C.getValue() + "%"
+							+ textField_MC_CFC.getText() + "\t" + "#" + " "
+							+ textField_FEEDBACKC.getText() + "\r" + "\n" + "="
+							+ "%" + spinner_MC_D.getValue() + "%"
+							+ textField_MC_CFD.getText() + "\t" + "#"
+							+ textField_FEEDBACKD.getText() + "\r" + "\n" + "}");
+
+					// textArea.write(outFile);
+					outFile.close();
+
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		panel5.add(btnMC_FC, "cell 0 11");
 		
-				JButton btnSaveTrueOrFalse = new JButton("Save to file");
-				btnSaveTrueOrFalse.addMouseListener(new MouseAdapter() {
-					// final JTextArea textArea = new JTextArea();
-					public void mouseClicked(MouseEvent arg0) {
-						// BufferedWriter outFile = null;
-
-						try {
-							String text = "";
-							if (rdbtnNewRadioButton.isEnabled()) {
-								text = "T";
-							} else if (rdbtnNewRadioButton_1.isEnabled()) {
-								text = "F";
-							} else
-								text = "F";
-
-							String fileName = "C:\\Users\\Declan\\Desktop\\SW";
-							PrintWriter outFile = new PrintWriter(fileName + ".txt");
-							outFile.write("::" + textField_1.getText() + "::");
-							outFile.write(textArea.getText());
-							outFile.write("{" + text + "}");
-
-							// textArea.write(outFile);
-							outFile.close();
-
-						} catch (FileNotFoundException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-				});
-				panel.add(btnSaveTrueOrFalse, "cell 0 5");
+		JButton btnDeletALLMC = new JButton("Delete All");
+		btnDeletALLMC.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
 				
-				
-				JButton btnAddQuestion = new JButton("Delete All");
-				btnAddQuestion.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent arg0) {
-						textArea.setText("");
-						textField_1.setText("");
-					
-					}
-				});
-				panel.add(btnAddQuestion, "cell 1 5,alignx right");
-
+				textField_MC_Q.setText("");
+				textField_MC_T.setText("");
+				textField_FEEDBACKA.setText("");
+				textField_FEEDBACKB.setText("");
+				textField_FEEDBACKC.setText("");
+				textField_FEEDBACKD.setText("");
+				textField_MC_CFA.setText("");
+				textField_MC_CFB.setText("");
+				textField_MC_CFC.setText("");
+				textField_MC_CFD.setText("");
 			
-					
-				
-		panel2.add(txtQuestionMC, "cell 1 3,grow");
+			}
+		});
+		panel5.add(btnDeletALLMC, "cell 5 11");
 
-		txtCorrectAnsMC = new JTextField();
-		panel2.add(txtCorrectAnsMC, "cell 1 5,growx");
-		txtCorrectAnsMC.setColumns(10);
-
-		txtAnswer2MC = new JTextField();
-		panel2.add(txtAnswer2MC, "cell 1 6,growx");
-		txtAnswer2MC.setColumns(10);
-
-		txtAnswer3MC = new JTextField();
-		panel2.add(txtAnswer3MC, "cell 1 7,growx");
-		txtAnswer3MC.setColumns(10);
-
-		txtAnswer4MC = new JTextField();
-		panel2.add(txtAnswer4MC, "cell 1 8,growx");
-		txtAnswer4MC.setColumns(10);
-
-		final JSpinner Ans1MC = new JSpinner();
-		panel2.add(Ans1MC, "cell 2 5");
-		final JSpinner Ans2MC = new JSpinner();
-		panel2.add(Ans2MC, "cell 2 6");
-		final JSpinner Ans3MC = new JSpinner();
-		panel2.add(Ans3MC, "cell 2 7");
-		final JSpinner Ans4MC = new JSpinner();
-		panel2.add(Ans4MC, "cell 2 8");
-		
-				JButton btnSaveFileMC = new JButton("Save to file");
-				btnSaveFileMC.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent arg0) {
-
-						try {
-							// String shit = "";
-							// if (rdbtnNewRadioButton.isEnabled()) {
-							// shit = "T";
-							// } else if (rdbtnNewRadioButton_1.isEnabled()) {
-							// shit = "F";
-							// } else
-							// shit = "F";
-
-							String fileName = "C:\\Users\\Declan\\Desktop\\SW";
-							PrintWriter outFile = new PrintWriter(fileName + ".txt");
-							outFile.write("::" + txtTitleMC.getText() + "::");
-							outFile.write(txtQuestionMC.getText());
-							outFile.write("\n" + "{=%" + Ans1MC.getValue() + "%"
-									+ txtCorrectAnsMC.getText() + " " + "~" + "%"
-									+ Ans2MC.getValue() + "%" + txtAnswer2MC.getText()
-									+ " " + "~" + "%" + Ans3MC.getValue() + "%"
-									+ txtAnswer3MC.getText() + " " + "~" + "%"
-									+ Ans4MC.getValue() + "%" + txtAnswer4MC.getText()
-									+ " \n" + "}");
-							// outFile.append( ""+Ans1MC.getValue() );
-
-							// textArea.write(outFile);
-							outFile.close();
-
-						} catch (FileNotFoundException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-
-						}
-					}
-				});
-				panel2.add(btnSaveFileMC, "cell 0 11");
-				
-				
-				JButton btnNewButton = new JButton("New button");
-				btnNewButton.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent arg0) {
-						JTextField newTextField = new JTextField();
-					    // add it to the container
-					    panel2.add(newTextField);
-					    newTextField.setSize(10, 10);
-					   panel2.updateUI();
-					}
-				});
-				
-				
-				
-	
-				
-				panel2.add(btnNewButton, "cell 1 11,alignx center");
-				
-				JButton btnDeleteMC = new JButton("Delete");
-				btnDeleteMC.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent arg0) {
-						txtAnswer2MC.setText("");
-						txtAnswer3MC.setText("");
-						txtAnswer4MC.setText("");
-						txtCorrectAnsMC.setText("");
-						txtQuestionMC.setText("");
-						txtTitleMC.setText("");
-					}
-				});
-				panel2.add(btnDeleteMC, "cell 2 11");
-
-		frame.setSize(500, 500);
+		frame.setSize(600, 600);
 		frame.setVisible(true);
 	}
 
