@@ -31,6 +31,9 @@ import java.util.List;
 import javax.swing.JSpinner;
 import java.awt.Font;
 import javax.swing.JCheckBox;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SoftwareEng extends JFrame {
 
@@ -110,8 +113,10 @@ public class SoftwareEng extends JFrame {
 	 */
 	public SoftwareEng() throws FileNotFoundException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JFrame frame = new JFrame();
-		frame.getContentPane().setLayout(new MigLayout("", "[grow]", ""));
+		JFrame frmDeclanMcgrathGift = new JFrame();
+		frmDeclanMcgrathGift.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Declan\\Desktop\\moodle-logo-huge (1).png"));
+		frmDeclanMcgrathGift.setTitle("Declan McGrath GIFT Editor");
+		frmDeclanMcgrathGift.getContentPane().setLayout(new MigLayout("", "[grow]", ""));
 
 		final JPanel panel = new JPanel();
 		final JPanel panel3 = new JPanel();
@@ -232,7 +237,7 @@ public class SoftwareEng extends JFrame {
 					PrintWriter outFile = new PrintWriter(fileName + ".txt");
 					outFile.write("::" + txtTitleMC.getText() + "::");
 					outFile.write(txtQuestionMC.getText());
-					outFile.write("\n" + "{" + " " + "="
+					outFile.write("{" + " " + "="
 							+ txtCorrectAnsMC.getText() + " " + "#" + " "
 							+ textField_FBA.getText() + " " + "~"
 							+ txtAnswer2MC.getText() + " " + "#" + " "
@@ -263,6 +268,16 @@ public class SoftwareEng extends JFrame {
 		panel2.add(btnSaveFileMC, "cell 0 13");
 
 		JButton btnDeleteMC = new JButton("Delete");
+		btnDeleteMC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+							
+				textField_FBA.setText("");
+				textField_FBB.setText("");
+				textField_FBC.setText("");
+				textField_FBD.setText("");
+				
+			}
+		});
 		btnDeleteMC.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -367,7 +382,7 @@ public class SoftwareEng extends JFrame {
 					outFile.write("::" + textField_MatchingQT.getText() + "::");
 					outFile.write(textField_MatchingQuestion.getText());
 					outFile.write("\n" + "{=" + textField_MatchingA.getText()
-							+ "->" + textField_MatchingA1.getText() + " ="
+							+ " " + "->" + " " + textField_MatchingA1.getText() + " ="
 							+ textField_MatchingB.getText() + "-> "
 							+ textField_MatchingB1.getText() + "="
 							+ textField_MatchingC.getText() + "->"
@@ -400,15 +415,10 @@ public class SoftwareEng extends JFrame {
 		panel4.add(btnMatchingSaveBtn, "cell 1 10");
 
 		tpane.addTab("Fill In the Blanks", null, panel3, "This is enable.");
-		panel3.setLayout(new MigLayout("", "[grow][grow][grow]",
-				"[][][][][][][][][]"));
+		panel3.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][]"));
 
 		final JLabel lblTitleFIB = new JLabel("Title");
 		panel3.add(lblTitleFIB, "cell 0 0");
-
-		textField_TitleFIB = new JTextField();
-		panel3.add(textField_TitleFIB, "cell 2 1,growx");
-		textField_TitleFIB.setColumns(10);
 
 		JButton btnSavetoTextFIB = new JButton("Save to file");
 		btnSavetoTextFIB.addMouseListener(new MouseAdapter() {
@@ -437,6 +447,10 @@ public class SoftwareEng extends JFrame {
 
 			}
 		});
+		
+				textField_TitleFIB = new JTextField();
+				panel3.add(textField_TitleFIB, "cell 0 1 2 1,growx");
+				textField_TitleFIB.setColumns(10);
 
 		JLabel lblQuestionFIB = new JLabel("Question");
 		lblQuestionFIB.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
@@ -469,7 +483,7 @@ public class SoftwareEng extends JFrame {
 			}
 		});
 		panel3.add(btnDeleteAllFIB, "cell 2 8,alignx right");
-		frame.getContentPane().add(tpane, "grow");
+		frmDeclanMcgrathGift.getContentPane().add(tpane, "grow");
 		textArea.setRows(5);
 
 		JButton btnSaveTrueOrFalse = new JButton("Save to file");
@@ -665,8 +679,8 @@ public class SoftwareEng extends JFrame {
 		});
 		panel5.add(btnDeletALLMC, "cell 5 11");
 
-		frame.setSize(600, 600);
-		frame.setVisible(true);
+		frmDeclanMcgrathGift.setSize(600, 600);
+		frmDeclanMcgrathGift.setVisible(true);
 	}
 
 }
