@@ -19,10 +19,11 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+<<<<<<< HEAD
 import java.io.BufferedWriter;
+=======
+>>>>>>> a2b29113f2051f498585d8eeeec94e077570fb1b
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,9 +70,14 @@ public class SoftwareEng extends JFrame {
 	private JTextField textField_FEEDBACKB;
 	private JTextField textField_FEEDBACKC;
 	private JTextField textField_FEEDBACKD;
+<<<<<<< HEAD
 	private JTextField Essay_Title;
 	private JTextField Essay_Question;
 	String fileName = "C:\\Users\\Declan\\Desktop\\SW.txt";
+=======
+	private JTextField textField_2;
+	private JTextField textField_3;
+>>>>>>> a2b29113f2051f498585d8eeeec94e077570fb1b
 
 	/**
 	 * Launch the application.
@@ -394,9 +400,6 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 
 			}
@@ -443,9 +446,6 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 
 			}
@@ -520,9 +520,6 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 			}
 		});
@@ -547,16 +544,28 @@ public class SoftwareEng extends JFrame {
 		JLabel lblNewLabel = new JLabel("Title");
 		panel6.add(lblNewLabel, "cell 0 0");
 
+<<<<<<< HEAD
 		Essay_Title = new JTextField();
 		panel6.add(Essay_Title, "cell 4 1 3 1,growx");
 		Essay_Title.setColumns(10);
+=======
+		textField_2 = new JTextField();
+		panel6.add(textField_2, "cell 4 1 3 1,growx");
+		textField_2.setColumns(10);
+>>>>>>> a2b29113f2051f498585d8eeeec94e077570fb1b
 
 		JLabel lblNewLabel_2 = new JLabel("Question");
 		panel6.add(lblNewLabel_2, "cell 0 3");
 
+<<<<<<< HEAD
 		Essay_Question = new JTextField();
 		panel6.add(Essay_Question, "cell 4 3 3 2,growx");
 		Essay_Question.setColumns(10);
+=======
+		textField_3 = new JTextField();
+		panel6.add(textField_3, "cell 4 3 3 2,growx");
+		textField_3.setColumns(10);
+>>>>>>> a2b29113f2051f498585d8eeeec94e077570fb1b
 
 		JButton btnNewButton = new JButton("Save to file");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -570,11 +579,18 @@ public class SoftwareEng extends JFrame {
 
 				try {
 
+<<<<<<< HEAD
 					BufferedWriter outFile = new BufferedWriter(new FileWriter(
 							fileName, true));
 					outFile.write("\r\n");
 					outFile.write("::" + Essay_Title.getText() + "::");
 					outFile.write(Essay_Question.getText());
+=======
+					String fileName = "C:\\Users\\Declan\\Desktop\\SW";
+					PrintWriter outFile = new PrintWriter(fileName + ".txt");
+					outFile.write("::" + textField_2.getText() + "::" + " ");
+					outFile.write(textField_3.getText());
+>>>>>>> a2b29113f2051f498585d8eeeec94e077570fb1b
 					outFile.write("{}");
 
 					// textArea.write(outFile);
@@ -584,9 +600,12 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
+<<<<<<< HEAD
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+=======
+>>>>>>> a2b29113f2051f498585d8eeeec94e077570fb1b
 				}
 			}
 		});
@@ -596,8 +615,13 @@ public class SoftwareEng extends JFrame {
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+<<<<<<< HEAD
 				Essay_Title.setText("");
 				Essay_Question.setText("");
+=======
+				textField_2.setText("");
+				textField_3.setText("");
+>>>>>>> a2b29113f2051f498585d8eeeec94e077570fb1b
 
 			}
 		});
@@ -725,9 +749,6 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 			}
 		});
