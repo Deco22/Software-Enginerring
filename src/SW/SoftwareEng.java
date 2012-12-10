@@ -1,7 +1,6 @@
 package SW;
 
 import java.awt.EventQueue;
-import java.awt.TextArea;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,15 +14,12 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import java.awt.Label;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.BufferedWriter;
+
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +33,6 @@ import java.awt.event.ActionEvent;
 
 public class SoftwareEng extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField txtTitleMC;
 	private JTextField txtCorrectAnsMC;
@@ -72,6 +66,8 @@ public class SoftwareEng extends JFrame {
 	private JTextField textField_FEEDBACKB;
 	private JTextField textField_FEEDBACKC;
 	private JTextField textField_FEEDBACKD;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -114,9 +110,11 @@ public class SoftwareEng extends JFrame {
 	public SoftwareEng() throws FileNotFoundException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JFrame frmDeclanMcgrathGift = new JFrame();
-		frmDeclanMcgrathGift.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Declan\\Desktop\\moodle-logo-huge (1).png"));
+		frmDeclanMcgrathGift.setIconImage(Toolkit.getDefaultToolkit().getImage(
+				"C:\\Users\\Declan\\Desktop\\moodle-logo-huge (1).png"));
 		frmDeclanMcgrathGift.setTitle("Declan McGrath GIFT Editor");
-		frmDeclanMcgrathGift.getContentPane().setLayout(new MigLayout("", "[grow]", ""));
+		frmDeclanMcgrathGift.getContentPane().setLayout(
+				new MigLayout("", "[grow]", ""));
 
 		final JPanel panel = new JPanel();
 		final JPanel panel3 = new JPanel();
@@ -237,10 +235,9 @@ public class SoftwareEng extends JFrame {
 					PrintWriter outFile = new PrintWriter(fileName + ".txt");
 					outFile.write("::" + txtTitleMC.getText() + "::");
 					outFile.write(txtQuestionMC.getText());
-					outFile.write("{" + " " + "="
-							+ txtCorrectAnsMC.getText() + " " + "#" + " "
-							+ textField_FBA.getText() + " " + "~"
-							+ txtAnswer2MC.getText() + " " + "#" + " "
+					outFile.write("{" + " " + "=" + txtCorrectAnsMC.getText()
+							+ " " + "#" + " " + textField_FBA.getText() + " "
+							+ "~" + txtAnswer2MC.getText() + " " + "#" + " "
 							+ textField_FBB.getText() + " " + "~"
 							+ txtAnswer3MC.getText() + " " + "#" + " "
 							+ textField_FBC.getText() + " " + "~"
@@ -270,12 +267,12 @@ public class SoftwareEng extends JFrame {
 		JButton btnDeleteMC = new JButton("Delete");
 		btnDeleteMC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-							
+
 				textField_FBA.setText("");
 				textField_FBB.setText("");
 				textField_FBC.setText("");
 				textField_FBD.setText("");
-				
+
 			}
 		});
 		btnDeleteMC.addMouseListener(new MouseAdapter() {
@@ -382,8 +379,8 @@ public class SoftwareEng extends JFrame {
 					outFile.write("::" + textField_MatchingQT.getText() + "::");
 					outFile.write(textField_MatchingQuestion.getText());
 					outFile.write("\n" + "{=" + textField_MatchingA.getText()
-							+ " " + "->" + " " + textField_MatchingA1.getText() + " ="
-							+ textField_MatchingB.getText() + "-> "
+							+ " " + "->" + " " + textField_MatchingA1.getText()
+							+ " =" + textField_MatchingB.getText() + "-> "
 							+ textField_MatchingB1.getText() + "="
 							+ textField_MatchingC.getText() + "->"
 							+ textField_MatchingC1.getText() + " =" + "}");
@@ -395,9 +392,6 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 
 			}
@@ -415,7 +409,8 @@ public class SoftwareEng extends JFrame {
 		panel4.add(btnMatchingSaveBtn, "cell 1 10");
 
 		tpane.addTab("Fill In the Blanks", null, panel3, "This is enable.");
-		panel3.setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][]"));
+		panel3.setLayout(new MigLayout("", "[grow][grow][grow]",
+				"[][][][][][][][][]"));
 
 		final JLabel lblTitleFIB = new JLabel("Title");
 		panel3.add(lblTitleFIB, "cell 0 0");
@@ -440,17 +435,14 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 
 			}
 		});
-		
-				textField_TitleFIB = new JTextField();
-				panel3.add(textField_TitleFIB, "cell 0 1 2 1,growx");
-				textField_TitleFIB.setColumns(10);
+
+		textField_TitleFIB = new JTextField();
+		panel3.add(textField_TitleFIB, "cell 0 1 2 1,growx");
+		textField_TitleFIB.setColumns(10);
 
 		JLabel lblQuestionFIB = new JLabel("Question");
 		lblQuestionFIB.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
@@ -514,9 +506,6 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 			}
 		});
@@ -533,10 +522,71 @@ public class SoftwareEng extends JFrame {
 		});
 		panel.add(btnAddQuestion, "cell 1 5,alignx right");
 
+		final JPanel panel6 = new JPanel();
+		tpane.addTab("Essay", null, panel6, "This is enable.");
+		panel6.setLayout(new MigLayout("", "[][][][][grow][][][][][grow][]",
+				"[][][][][][][][][][][]"));
+
+		JLabel lblNewLabel = new JLabel("Title");
+		panel6.add(lblNewLabel, "cell 0 0");
+
+		textField_2 = new JTextField();
+		panel6.add(textField_2, "cell 4 1 3 1,growx");
+		textField_2.setColumns(10);
+
+		JLabel lblNewLabel_2 = new JLabel("Question");
+		panel6.add(lblNewLabel_2, "cell 0 3");
+
+		textField_3 = new JTextField();
+		panel6.add(textField_3, "cell 4 3 3 2,growx");
+		textField_3.setColumns(10);
+
+		JButton btnNewButton = new JButton("Save to file");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+			}
+		});
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+
+				try {
+
+					String fileName = "C:\\Users\\Declan\\Desktop\\SW";
+					PrintWriter outFile = new PrintWriter(fileName + ".txt");
+					outFile.write("::" + textField_2.getText() + "::" + " ");
+					outFile.write(textField_3.getText());
+					outFile.write("{}");
+
+					// textArea.write(outFile);
+					outFile.close();
+
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+
+				}
+			}
+		});
+		panel6.add(btnNewButton, "cell 0 7");
+
+		JButton btnNewButton_1 = new JButton("Delete All");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				textField_2.setText("");
+				textField_3.setText("");
+
+			}
+		});
+		panel6.add(btnNewButton_1, "cell 7 7");
+
 		final JPanel panel5 = new JPanel();
 
 		tpane.addTab("Multiple Choice 2", null, panel5, "This is enable.");
-		panel5.setLayout(new MigLayout("", "[grow][grow][][grow][][]", "[][][][][][][][][][][][]"));
+		panel5.setLayout(new MigLayout("", "[grow][grow][][grow][][]",
+				"[][][][][][][][][][][][]"));
 
 		JLabel lblTitleMC_CF = new JLabel("Title");
 		panel5.add(lblTitleMC_CF, "cell 0 0");
@@ -651,19 +701,16 @@ public class SoftwareEng extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 			}
 		});
 		panel5.add(btnMC_FC, "cell 0 11");
-		
+
 		JButton btnDeletALLMC = new JButton("Delete All");
 		btnDeletALLMC.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+
 				textField_MC_Q.setText("");
 				textField_MC_T.setText("");
 				textField_FEEDBACKA.setText("");
@@ -674,7 +721,7 @@ public class SoftwareEng extends JFrame {
 				textField_MC_CFB.setText("");
 				textField_MC_CFC.setText("");
 				textField_MC_CFD.setText("");
-			
+
 			}
 		});
 		panel5.add(btnDeletALLMC, "cell 5 11");
